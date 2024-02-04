@@ -585,7 +585,7 @@ def run_exchange_rate_tool():
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
 
-    specific_version = '121.0.6167.85'
+    specific_version = '114.0.5735.90' #100.0.4896.20
     service = Service(ChromeDriverManager(driver_version=specific_version).install())
     driver = webdriver.Chrome(service=service, options=options)
 

@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4d5cd98-a4a3-4aba-a6f6-9af037de39a7" name="Changes" comment="botUsd funcionando">
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+    <list default="true" id="c4d5cd98-a4a3-4aba-a6f6-9af037de39a7" name="Changes" comment="botUsd included">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,12 +89,21 @@
       <option name="project" value="LOCAL" />
       <updated>1707053597102</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="botUsd included">
+      <option name="closed" value="true" />
+      <created>1707054113279</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707054113279</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Procfile" />
     <MESSAGE value="botUsd funcionando" />
-    <option name="LAST_COMMIT_MESSAGE" value="botUsd funcionando" />
+    <MESSAGE value="botUsd included" />
+    <option name="LAST_COMMIT_MESSAGE" value="botUsd included" />
   </component>
 </project>

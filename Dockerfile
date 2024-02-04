@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Expõe a porta em que a aplicação Flask vai rodar
-EXPOSE 5000
+EXPOSE 5005
 
 # Define a variável de ambiente para executar a aplicação em produção
 ENV FLASK_ENV=production

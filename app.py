@@ -12,6 +12,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from flask_cors import CORS
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
 CORS(app)
@@ -609,6 +612,42 @@ def run_exchange_rate_tool():
         return jsonify({'error': "Houve um erro sistêmico, por favor, tente novamente.", 'success': False}), 500
     finally:
         driver.quit()
+
+@app.route('/api/send_email', methods=['POST'])
+def send_email():
+    dados = request.get_json()
+    nome = dados['nome']
+    email = dados['email']
+    telefone = dados['telefone']
+
+    subject = 'Formulário do Portfolio'
+    body = f'Informações de Contato\n\nNome completo: {nome}\nE-mail: {email}\nTelefone: {telefone}'
+
+    smtp_server = 'smtp.gmail.com'
+    smtp_port = 587
+    smtp_username = 'lucasreinert96@gmail.com'
+    smtp_password = 'odzf tcau fcso jsol'
+
+    # Configuração do servidor SMTP
+    server = smtplib.SMTP(smtp_server, smtp_port)
+    server.starttls()
+    server.login(smtp_username, smtp_password)
+
+    # Criação do e-mail
+    msg = MIMEMultipart()
+    msg['From'] = smtp_username
+    msg['To'] = 'lucasreinert96@gmail.com'
+    msg['Subject'] = subject
+    msg.attach(MIMEText(body, 'plain'))
+
+    server.sendmail(smtp_username, 'lucasreinert96@gmail.com', msg.as_string())
+
+    server.quit()
+
+    response = {
+        'success': True
+    }
+    return jsonify(response), 201
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))

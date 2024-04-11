@@ -620,43 +620,8 @@ def send_email():
     email = dados['email']
     telefone = dados['telefone']
 
-    subject = 'Formulário do Portfolio'
-    body = f'Informações de Contato\n\nNome completo: {nome}\nE-mail: {email}\nTelefone: {telefone}'
-
-    smtp_server = 'smtp.gmail.com'
-    smtp_port = 587
-    smtp_username = 'lucasreinert96@gmail.com'
-    smtp_password = 'odzf tcau fcso jsol'
-
-    # Configuração do servidor SMTP
-    server = smtplib.SMTP(smtp_server, smtp_port)
-    server.starttls()
-    server.login(smtp_username, smtp_password)
-
-    # Criação do e-mail
-    msg = MIMEMultipart()
-    msg['From'] = smtp_username
-    msg['To'] = 'lucasreinert96@gmail.com'
-    msg['Subject'] = subject
-    msg.attach(MIMEText(body, 'plain'))
-
-    server.sendmail(smtp_username, 'lucasreinert96@gmail.com', msg.as_string())
-
-    server.quit()
-
-    response = {
-        'success': True
-    }
-    return jsonify(response), 201
-
-@app.route('/api/send_ip_email', methods=['POST'])
-def send_ip_email():
-    dados = request.get_json()
-    ip_address = dados['ip_adress']
-
-    # Body novo
-    subject = 'Novo acesso capturado'
-    body = f'Informações de Contato\n\nEndereço de Ip: {ip_address}'
+    subject = 'Novo acesso no Portifólio'
+    body = f'Informações de Contato\n\nNome / IP: {nome}\nE-mail: {email}\nTelefone: {telefone}'
 
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587

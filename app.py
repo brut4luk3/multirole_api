@@ -650,12 +650,13 @@ def send_email():
     return jsonify(response), 201
 
 @app.route('/api/send_ip_email', methods=['POST'])
-def send_email():
+def send_ip_email():
     dados = request.get_json()
     ip_adress = dados['ip_adress']
 
+    # Body novo
     subject = 'Novo acesso capturado'
-    body = f'Informações de Contato\n\nEndereço de Ip: {nome}'
+    body = f'Informações de Contato\n\nEndereço de Ip: {ip_adress}'
 
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587

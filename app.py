@@ -649,6 +649,40 @@ def send_email():
     }
     return jsonify(response), 201
 
+@app.route('/api/send_ip_email', methods=['POST'])
+def send_email():
+    dados = request.get_json()
+    ip_adress = dados['ip_adress']
+
+    subject = 'Novo acesso capturado'
+    body = f'Informações de Contato\n\nEndereço de Ip: {nome}'
+
+    smtp_server = 'smtp.gmail.com'
+    smtp_port = 587
+    smtp_username = 'lucasreinert96@gmail.com'
+    smtp_password = 'odzf tcau fcso jsol'
+
+    # Configuração do servidor SMTP
+    server = smtplib.SMTP(smtp_server, smtp_port)
+    server.starttls()
+    server.login(smtp_username, smtp_password)
+
+    # Criação do e-mail
+    msg = MIMEMultipart()
+    msg['From'] = smtp_username
+    msg['To'] = 'lucasreinert96@gmail.com'
+    msg['Subject'] = subject
+    msg.attach(MIMEText(body, 'plain'))
+
+    server.sendmail(smtp_username, 'lucasreinert96@gmail.com', msg.as_string())
+
+    server.quit()
+
+    response = {
+        'success': True
+    }
+    return jsonify(response), 201
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)

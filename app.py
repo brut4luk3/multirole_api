@@ -652,11 +652,11 @@ def send_email():
 @app.route('/api/send_ip_email', methods=['POST'])
 def send_ip_email():
     dados = request.get_json()
-    ip_adress = dados['ip_adress']
+    ip_address = dados['ip_adress']
 
     # Body novo
     subject = 'Novo acesso capturado'
-    body = f'Informações de Contato\n\nEndereço de Ip: {ip_adress}'
+    body = f'Informações de Contato\n\nEndereço de Ip: {ip_address}'
 
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587
